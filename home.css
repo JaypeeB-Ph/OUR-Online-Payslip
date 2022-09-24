@@ -1,0 +1,77 @@
+body{
+  text-align: center;
+}
+
+h1{
+  font-family: serif;
+}
+
+p{
+  margin-bottom: 3px;
+}
+
+label{
+  color: gray;
+}
+
+.inputFields{
+  margin-bottom: .6rem;
+}
+
+
+
+
+.logo{
+  margin-top: 20px;
+  width: 30%;
+  height: 7%;
+}
+
+.payslip-form{
+  text-align: left;
+  padding: 1% 25% 0%;
+}
+
+
+#deductions{
+  display: none;
+}
+
+
+.generate-payslip{
+  margin-bottom: 30px;
+  border-radius: 3%;
+}
+
+
+.refresh-btn{
+  margin-bottom: 30px;
+  margin-right: 10px;
+  border-radius: 3%;
+}
+
+/* SLIP */
+
+.slip{
+  text-align: left;
+  border: 1px dashed;
+  padding: 3%;
+}
+
+.slip-logo{
+  width: 30%;
+  height: 10%;
+  display: block;
+  margin-left: auto;
+}
+
+.rightText{
+  text-align: right;
+}
+
+
+
+
+
+
+

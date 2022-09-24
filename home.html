@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Jaypee Bolonia">
+  <meta name="description" content="A payslip web app for OUR Bank.">
+  <link rel="icon" href="images/favicon.ico">
+
+  <title>Online Payslip</title>
+
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+ 
+
+  <!-- custom CSS -->
+
+  <link rel="stylesheet" href="home.css">
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <img class="logo" src="images/logo-full.png" alt="logo">
+
+    <div class="payslip-form">
+
+      <h1>Employee Information:</h1>
+      
+      
+      
+      <form class="employee-info">
+
+        <div class="form-floating inputFields">
+          <input type="text" class="form-control" id="paymentDate" placeholder="paymentDate">
+          <label for="paymentDate">Date of Payment</label>
+        </div>
+
+        <select class="form-select inputFields"  id="branch" aria-label="Default select example">
+          <option selected>Branch</option>
+          <option value="Head Office">Head Office</option>
+          <option value="Magallanes">Magallanes</option>
+          <option value="General Trias - Manggahan">General Trias - Manggahan</option>
+          <option value="Maragondon">Maragondon</option>
+          <option value="General Trias - Poblacion">General Trias - Poblacion</option>
+          <option value="Noveleta">Noveleta</option>
+          <option value="Ternate">Ternate</option>
+        </select>
+
+        <div class="form-floating inputFields">
+          <input type="text" class="form-control" id="idNumber" placeholder="idNumber">
+          <label for="idNumber">Employee ID No.</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="text" class="form-control" id="name" placeholder="name">
+          <label for="name">Employee Name</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="text" class="form-control" id="position" placeholder="position">
+          <label for="position">Position</label>
+        </div>
+
+      </form>
+
+      <br>
+
+      <h1>Earnings:</h1>
+      <form action="">
+      
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="salary" value="0.00" placeholder="Username">
+          <label for="salary">Basic Salary</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="transpoAllow" value="0.00" placeholder="Username">
+          <label for="transpoAllow">Transporation Allowance</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="riceAllow" value="0.00" placeholder="Username">
+          <label for="riceAllow">Rice Allowance</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="overtimePay" value="0.00" placeholder="Username">
+          <label for="overtimePay">Overtime Pay</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="hollidayPay" value="0.00" placeholder="Username">
+          <label for="hollidayPay">Holliday Pay</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="otherPay" value="0.00" placeholder="Username">
+          <label for="otherPay">Other</label>
+        </div>
+
+
+        <div class="form-check">
+          <input class="form-check-input cb-deductions" type="checkbox" id="flexCheckDefault" >
+          <label class="form-check-label" for="flexCheckDefault">
+            Add deductions?
+          </label>
+        </div>
+
+      </form>
+
+      
+      <br>
+
+      <form action="" id="deductions">
+
+        <h1>Deductions:</h1>
+      
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="sss" value="0.00" placeholder="Username">
+          <label for="sss">SSS</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="pagibig" value="0.00" placeholder="Username">
+          <label for="pagibig">PAGIBIG</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="philhealth" value="0.00" placeholder="Username">
+          <label for="philhealth">PHILHEALTH</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="employeeLoan" value="0.00" placeholder="Username">
+          <label for="employeeLoan">Employee Loan</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="absent" value="0.00" placeholder="Username">
+          <label for="absent">Absent</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="lates" value="0.00" placeholder="Username">
+          <label for="lates">Lates</label>
+        </div>
+        <div class="form-floating inputFields">
+          <input type="number" class="form-control" id="otherDeduct" value="0.00" placeholder="Username">
+          <label for="otherDeduct">Other</label>
+        </div>
+      </form>
+
+      <br>
+
+    </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-success btn-lg refresh-btn">Refresh</button>
+  <button type="button" class="btn btn-primary btn-lg generate-payslip" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Generate Payslip
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Payslip</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div id="payslip-content">
+          
+          <!-- day 15 -->
+          <div class="slip">
+            <img class="slip-logo" src="images/logo.png" alt="logo"><br>
+            <h3>PAYSLIP</h3>
+            <div class="rightText">
+              <p>Date of Payment: <span><strong  class="slipDateOfPayment"></strong></span></p>
+              <p>Branch: <span><strong  class="slipBranch"></strong></span></p>
+              <!-- <p class="slipPayPeriod">Pay period:</p> -->
+            </div>
+
+            <p>Employee ID No: <span><strong  class="slipID"></strong></span></p>
+            <p>Employee Name: <span><strong  class="slipName"></strong></span></p>
+            <p>Position: <span><strong  class="slipPosition"></strong></span></p>
+
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">EARNINGS</th>
+                  <th scope="col"></th>
+                  <th scope="col">DEDUCTIONS</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row">Basic Salary</th>
+                  <td class="data-basicPay">0.00</td>
+                  <th scope="row">SSS</th>
+                  <td class="data-sss">0.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Transportation Allowance</th>
+                  <td class="data-transpoAllow">0.00</td>
+                  <th scope="row">PAGIBIG</th>
+                  <td class="data-pagibig">0.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rice Allowance</th>
+                  <TD class="data-riceAllow">0.00</TD>
+                  <th scope="row">PHILHEALTH</th>
+                  <TD class="data-philhealth">0.00</TD>
+                </tr>
+                <tr>
+                  <th scope="row">Overtime Pay</th>
+                  <TD class="data-otPay">0.00</TD>
+                  <th scope="row">Employee Loan</th>
+                  <TD class="data-employeeLoan">0.00</TD>
+                </tr>
+                <tr>
+                  <th scope="row">Holliday Pay</th>
+                  <TD class="data-hollidayPay">0.00</TD>
+                  <th scope="row">Absent</th>
+                  <TD class="data-absent">0.00</TD>
+                </tr>
+                <tr>
+                  <th scope="row">Other pay</th>
+                  <TD class="data-otherPay">0.00</TD>
+                  <th scope="row">Lates</th>
+                  <TD class="data-lates">0.00</TD>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <TD></TD>
+                  <th scope="row">Other deduction</th>
+                  <TD class="data-otherDeduct">0.00</TD>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <TD></TD>
+                  <th scope="row">Tax deduction</th>
+                  <TD class="data-taxDeduct">0.00</TD>
+                </tr>
+              </tbody>
+              <tfoot class="table-group-divider">
+                <tr>
+                  <th scope="row">TOTAL EARNINGS</th>
+                  <td class="data-totalEarnings">0.00</td>
+                  <th scope="row">TOTAL DEDUCTIONS</th>
+                  <td class="data-totalDeducts">0.00</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td></td>
+                  <th scope="row" class="table-dark">NET SALARY</th>
+                  <td class="table-dark data-netSalary">0.00</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary print-btn">Save as PDF</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+<!-- Custome -->
+
+<script type="text/javascript" src="printThis.js"></script>
+<script type="text/javascript" src="home.js"></script>
+</body>
+</html>
